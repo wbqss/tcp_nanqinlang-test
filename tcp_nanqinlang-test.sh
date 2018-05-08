@@ -22,12 +22,6 @@ check_root(){
 	[[ "`id -u`" != "0" ]] && echo -e "${Error} must be root user !" && exit 1
 }
 
-check_kvm(){
-	apt-get update
-	apt-get install -y virt-what
-	[[ "`virt-what`" != "kvm" ]] && echo -e "${Error} only support KVM !" && exit 1
-}
-
 directory(){
 	[[ ! -d /home/tcp_nanqinlang ]] && mkdir -p /home/tcp_nanqinlang
 	cd /home/tcp_nanqinlang
